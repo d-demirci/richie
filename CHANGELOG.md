@@ -17,6 +17,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 - Improve search error message layout
+- Add default images for empty organization logo and banner.
+- Add default image for empty person portrait.
 
 ### Fixed
 
