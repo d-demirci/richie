@@ -6,5 +6,4 @@ _dc_run \
     -e DJANGO_CONFIGURATION=Test \
     -e PYTHONPATH=/app/sandbox \
     app \
-    dockerize -wait "tcp://${DB_HOST:-postgresql}:${DB_PORT:-5432}" -timeout 60s \
-        pytest "$@"
+    pytest "$@"
