@@ -195,7 +195,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     SOCIAL_AUTH_POSTGRES_JSONFIELD = False  # Mysql compatibility by default
 
     # LMS
-    LMS_BAKENDS = [
+    LMS_BACKENDS = [
         {
             # We configure default values that work with the test configuration of the hawthorn
             # flavor of github.com/openfun/openedx-docker.

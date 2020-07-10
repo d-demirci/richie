@@ -1,5 +1,4 @@
 """Test suite for the LMS select function."""
-from django.core.exceptions import ImproperlyConfigured
 from django.test import TestCase
 from django.test.utils import override_settings
 
@@ -38,5 +37,4 @@ class LMSSelectTestCase(TestCase):
         self.assertEqual(type(backend), BaseLMSBackend)
         self.assertEqual(backend.configuration["BASE_URL"], "https://edx.org")
 
-        with self.assertRaises(ImproperlyConfigured):
-            LMSHandler.select_lms("https://unknown.io/course/123")
+        self.assertEqual(LMSHandler.select_lms("https://unknown.io/course/123"), None)

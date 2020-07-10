@@ -24,7 +24,7 @@ class EdXLMSBackend(BaseLMSBackend):
         )
 
     def get_enrollment(self, user, url):
-        """Get enrollment statuc for a user on a course run given its url."""
+        """Get enrollment status for a user on a course run given its url."""
 
         response = self.api_client.request(
             "GET",
