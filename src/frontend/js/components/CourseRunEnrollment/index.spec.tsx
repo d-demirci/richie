@@ -32,7 +32,7 @@ describe('<CourseRunEnrollment />', () => {
     fetchMock.get('/api/v1.0/users/whoami/', userDeferred.promise);
     const enrollmentsDeferred = new Deferred();
     fetchMock.get(
-      `/api/v1.0/enrollments/?course_run=${courseRun.id}`,
+      `/api/v1.0/enrollments/?course_run_id=${courseRun.id}`,
       enrollmentsDeferred.promise,
     );
 
@@ -78,7 +78,7 @@ describe('<CourseRunEnrollment />', () => {
     fetchMock.get('/api/v1.0/users/whoami/', userDeferred.promise);
     const enrollmentsDeferred = new Deferred();
     fetchMock.get(
-      `/api/v1.0/enrollments/?course_run=${courseRun.id}`,
+      `/api/v1.0/enrollments/?course_run_id=${courseRun.id}`,
       enrollmentsDeferred.promise,
     );
 
@@ -122,7 +122,7 @@ describe('<CourseRunEnrollment />', () => {
     fetchMock.get('/api/v1.0/users/whoami/', userDeferred.promise);
     const enrollmentsDeferred = new Deferred();
     fetchMock.get(
-      `/api/v1.0/enrollments/?course_run=${courseRun.id}`,
+      `/api/v1.0/enrollments/?course_run_id=${courseRun.id}`,
       enrollmentsDeferred.promise,
     );
 
@@ -158,7 +158,7 @@ describe('<CourseRunEnrollment />', () => {
     fetchMock.get('/api/v1.0/users/whoami/', userDeferred.promise);
     const enrollmentsDeferred = new Deferred();
     fetchMock.get(
-      `/api/v1.0/enrollments/?course_run=${courseRun.id}`,
+      `/api/v1.0/enrollments/?course_run_id=${courseRun.id}`,
       enrollmentsDeferred.promise,
     );
 
@@ -190,7 +190,7 @@ describe('<CourseRunEnrollment />', () => {
     );
     const enrollmentsDeferred = new Deferred();
     fetchMock.get(
-      `/api/v1.0/enrollments/?course_run=${courseRun.id}`,
+      `/api/v1.0/enrollments/?course_run_id=${courseRun.id}`,
       enrollmentsDeferred.promise,
     );
     fetchMock.get('/api/v1.0/users/whoami/', 401);

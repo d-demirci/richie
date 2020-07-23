@@ -193,7 +193,7 @@ export const CourseRunEnrollment: React.FC<
           method: 'POST',
         });
         if (response.ok) {
-          return await response.json();
+          return true; // There is no content in the enrollment success response
         }
         throw new Error(
           `Failed to enroll in ${courseRunId}, ${response.status}`,
@@ -222,7 +222,7 @@ export const CourseRunEnrollment: React.FC<
         throw new Error(`Failed to get current user, ${response.status}.`);
       },
       getEnrollment: async () => {
-        const params = { course_run: courseRunId };
+        const params = { course_run_id: courseRunId };
         const response = await fetch(
           `/api/v1.0/enrollments/?${stringify(params)}`,
           { headers },
@@ -230,6 +230,11 @@ export const CourseRunEnrollment: React.FC<
         if (response.ok) {
           const enrollments = await response.json();
           return enrollments.length > 0 ? enrollments[0] : null;
+        }
+        // Do not go through the failure channel if it's just an anonymous user that therefore is
+        // not authorized to make list requests on enrollments
+        if (response.status === 401 || response.status === 403) {
+          return null;
         }
         throw new Error(
           `Failed to get enrollments for user, ${response.status}`,

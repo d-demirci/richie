@@ -23,6 +23,11 @@
 
     &--loading {
       cursor: progress !important;
+      opacity: 0.7;
+
+      &:hover {
+        background: r-color('indianred3');
+      }
 
       .spinner-container {
         margin-left: 0.25rem;
