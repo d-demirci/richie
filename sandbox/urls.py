@@ -27,13 +27,7 @@ urlpatterns = [
     url(r"^sitemap\.xml$", sitemap, {"sitemaps": {"cmspages": CMSSitemap}}),
     url(
         r"^api/{}/".format(API_PREFIX),
-        include(
-            [
-                *core_urlpatterns,
-                *courses_urlpatterns,
-                *search_urlpatterns,
-            ]
-        ),
+        include([*core_urlpatterns, *courses_urlpatterns, *search_urlpatterns]),
     ),
     url(r"^", include("filer.server.urls")),
 ]

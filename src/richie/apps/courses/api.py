@@ -121,7 +121,9 @@ class EnrollmentViewSet(ViewSet):
             )
 
         try:
-            course_run = CourseRun.objects.get(id=request.query_params.get("course_run_id"))
+            course_run = CourseRun.objects.get(
+                id=request.query_params.get("course_run_id")
+            )
         except CourseRun.DoesNotExist:
             return Response([])
 
