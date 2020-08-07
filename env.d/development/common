@@ -1,6 +1,6 @@
 # Django
 DJANGO_SETTINGS_MODULE=settings
-DJANGO_CONFIGURATION=Development
+DJANGO_CONFIGURATION=Production
 DJANGO_SECRET_KEY=ThisIsAnExampleKeyForDevPurposeOnly
 
 # Python
