@@ -143,5 +143,10 @@ FROM core as production
 
 WORKDIR /app/sandbox
 
+RUN python manage.py makemigrations
+RUN python manage.py migrate
+RUN python manage.py collectstatic --no-input
+RUN python manage.py bootstrap_elasticsearch
+
 # The default command runs gunicorn WSGI server in the sandbox
 CMD gunicorn -c /usr/local/etc/gunicorn/richie.py wsgi:application
