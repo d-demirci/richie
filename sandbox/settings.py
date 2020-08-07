@@ -138,7 +138,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     SITE_ID = 1
 
     # Security
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ["nubidus.com", "www.nubidus.com"]
     SECRET_KEY = values.Value('DJANGO_SECRET_KEY')
 
     # Application definition
