@@ -58,8 +58,9 @@ FROM base as core
 # Install gettext
 RUN apt-get update && \
     apt-get install -y \
-    gettext && \
-    rm -rf /var/lib/apt/lists/*
+    gettext 
+    #&& \
+    #rm -rf /var/lib/apt/lists/*
 
 # Copy installed python dependencies
 COPY --from=back-builder /install /usr/local
