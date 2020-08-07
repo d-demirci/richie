@@ -21,7 +21,7 @@ services:
       target: production
       args:
         DOCKER_USER: ${DOCKER_USER:-1000}
-    image: richie:dev_4
+    image: richie:dev_5
     env_file:
         - env.d/development/common
         - env.d/development/${DB_HOST:-postgresql}
