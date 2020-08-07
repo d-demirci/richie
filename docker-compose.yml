@@ -18,10 +18,10 @@ services:
   app:
     build:
       context: .
-      target: development
+      target: production
       args:
         DOCKER_USER: ${DOCKER_USER:-1000}
-    image: richie:dev_2
+    image: richie:dev_3
     env_file:
         - env.d/development/common
         - env.d/development/${DB_HOST:-postgresql}
