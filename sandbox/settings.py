@@ -139,7 +139,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
 
     # Security
     ALLOWED_HOSTS = []
-    SECRET_KEY = values.Value(None)
+    SECRET_KEY = values.Value('DJANGO_SECRET_KEY')
 
     # Application definition
     ROOT_URLCONF = "urls"
