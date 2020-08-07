@@ -13,7 +13,7 @@ class ReactLocaleSearchTemplateTagsTestCase(TestCase):
     Unit test suite to validate the behavior of the `rfc_5646_locale` template filter.
     """
 
-    @override_settings(RFC_5646_LOCALES=["en-US", "fr-CA", "fr-FR", "es-ES"])
+    @override_settings(RFC_5646_LOCALES=["en-US", "fr-CA", "fr-FR", "es-ES", "tr-TR"])
     def test_templatetags_search_tags_rfc_5646_locale_canada_first(self):
         """
         Languages should return the first matching BCP47/RFC5646 locale (Canada comes
