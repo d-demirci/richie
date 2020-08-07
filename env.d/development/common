@@ -2,6 +2,7 @@
 DJANGO_SETTINGS_MODULE=settings
 DJANGO_CONFIGURATION=Production
 DJANGO_SECRET_KEY=ThisIsAnExampleKeyForDevPurposeOnly
+DJANGO_ALLOWED_HOSTS="nubidus.com,www.nubidus.com"
 
 # Python
 PYTHONUNBUFFERED=1
