@@ -138,15 +138,15 @@ CMD cd sandbox && \
     dockerize -wait tcp://${DB_HOST}:${DB_PORT} -timeout 60s \
     python manage.py runserver 0.0.0.0:8000
 
+CMD python manage.py makemigrations && \
+    python manage.py migrate && \
+    python manage.py collectstatic --no-input && \
+    python manage.py bootstrap_elasticsearch
+
 # ---- Production image ----
 FROM core as production
 
 WORKDIR /app/sandbox
-
-RUN python manage.py makemigrations
-RUN python manage.py migrate
-RUN python manage.py collectstatic --no-input
-RUN python manage.py bootstrap_elasticsearch
 
 # The default command runs gunicorn WSGI server in the sandbox
 CMD gunicorn -c /usr/local/etc/gunicorn/richie.py wsgi:application
