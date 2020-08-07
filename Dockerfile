@@ -64,6 +64,14 @@ RUN apt-get update && \
 # Copy installed python dependencies
 COPY --from=back-builder /install /usr/local
 
+#copy compiled js and css from backbuilder to core
+COPY --from=back-builder \
+    /builder/src/richie/static/richie/js/*.js \
+    /app/src/richie/static/richie/js/
+COPY --from=back-builder \
+    /builder/src/richie/static/richie/css/main.css \
+    /app/src/richie/static/richie/css/main.css
+
 # Copy runtime-required files
 COPY ./sandbox /app/sandbox
 COPY ./docker/files/usr/local/bin/entrypoint /usr/local/bin/entrypoint
