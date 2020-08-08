@@ -113,8 +113,8 @@ COPY . /app/
 # dependencies
 RUN pip uninstall -y richie
 RUN pip install -e .[dev]
-RUN pip uninstall -y richie
-RUN pip install richie==1.17.0
+#RUN pip uninstall -y richie
+#RUN pip install richie==1.17.0
 
 # Install dockerize. It is used to ensure that the database service is accepting
 # connections before trying to access it from the main application.
