@@ -59,6 +59,7 @@ FROM base as core
 RUN apt-get update && \
     apt-get install -y \
     gettext 
+    # python3-dev default-libmysqlclient-dev python3-mysqldb
     #&& \
     #rm -rf /var/lib/apt/lists/*
 
@@ -115,6 +116,7 @@ RUN pip uninstall -y richie
 RUN pip install -e .[dev]
 #RUN pip uninstall -y richie
 #RUN pip install richie==1.17.0
+# RUN pip install mysqlclient
 
 # Install dockerize. It is used to ensure that the database service is accepting
 # connections before trying to access it from the main application.
@@ -131,8 +133,8 @@ USER ${DOCKER_USER}
 
 # Target database host (e.g. database engine following docker-compose services
 # name) & port
-ENV DB_HOST=postgresql \
-    DB_PORT=5432
+ENV DB_HOST=mysql \
+    DB_PORT=3306
 
 # Run django development server (wrapped by dockerize to ensure the db is ready
 # to accept connections before running the development server)
@@ -140,15 +142,16 @@ CMD cd sandbox && \
     dockerize -wait tcp://${DB_HOST}:${DB_PORT} -timeout 60s \
     python manage.py runserver 0.0.0.0:8000
 
-CMD python manage.py makemigrations && \
-    python manage.py migrate && \
-    python manage.py collectstatic --no-input && \
-    python manage.py bootstrap_elasticsearch
+CMD cd /app/sandbox && \
+    python manage.py makemigrations && \
+    python manage.py migrate
+    #python manage.py collectstatic --no-input && \
+    #python manage.py bootstrap_elasticsearch
 
 # ---- Production image ----
 FROM core as production
-
+USER root:root
 WORKDIR /app/sandbox
 
 # The default command runs gunicorn WSGI server in the sandbox
-CMD gunicorn -c /usr/local/etc/gunicorn/richie.py wsgi:application
+CMD gunicorn -c /usr/local/etc/gunicorn/richie.py wsgi:application --preload 
