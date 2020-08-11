@@ -145,7 +145,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     # Application definition
     ROOT_URLCONF = "urls"
     WSGI_APPLICATION = "wsgi.application"
-    SESSION_COOKIE_DOMAIN = values.Value('SESSION_COOKIE_DOMAIN')
+    #SESSION_COOKIE_DOMAIN = values.Value('SESSION_COOKIE_DOMAIN')
     # Database
     DATABASES = {
         "default": {
@@ -314,7 +314,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
             "public": True,
             "hide_untranslated": False,
             "redirect_on_fallback": True,
-            "fallbacks": ["en", "fr", "tr"],
+            "fallbacks": ["en", "tr"],
         },
         1: [
             {

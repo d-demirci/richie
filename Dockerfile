@@ -140,17 +140,17 @@ ENV DB_HOST=mysql \
 # to accept connections before running the development server)
 CMD cd sandbox && \
     dockerize -wait tcp://${DB_HOST}:${DB_PORT} -timeout 60s \
-    python manage.py runserver 0.0.0.0:8000
+    python manage.py runserver 0.0.0.0:8000 
 
-CMD cd /app/sandbox && \
-    python manage.py makemigrations && \
-    python manage.py migrate
+# CMD cd /app/sandbox && \
+#     python manage.py makemigrations && \
+#     python manage.py migrate 
     #python manage.py collectstatic --no-input && \
     #python manage.py bootstrap_elasticsearch
 
 # ---- Production image ----
 FROM core as production
-USER root:root
+# USER root:root
 WORKDIR /app/sandbox
 
 # The default command runs gunicorn WSGI server in the sandbox
