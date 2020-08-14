@@ -464,26 +464,26 @@ class Production(Base):
 
     DJANGO_ALLOWED_HOSTS="foo.com,foo.fr"
     """
-
+    DEBUG= True
     # Security
-    ALLOWED_HOSTS = values.ListValue('DJANGO_ALLOWED_HOSTS')
-    CSRF_COOKIE_SECURE = True
-    SECURE_BROWSER_XSS_FILTER = True
-    SECURE_CONTENT_TYPE_NOSNIFF = True
-    SESSION_COOKIE_SECURE = True
+    # ALLOWED_HOSTS = values.ListValue('DJANGO_ALLOWED_HOSTS')
+    # CSRF_COOKIE_SECURE = True
+    # SECURE_BROWSER_XSS_FILTER = True
+    # SECURE_CONTENT_TYPE_NOSNIFF = True
+    # SESSION_COOKIE_SECURE = True
     # System check reference:
     # https://docs.djangoproject.com/en/2.2/ref/checks/#security
-    SILENCED_SYSTEM_CHECKS = values.ListValue(
-        [
-            # Allow the X_FRAME_OPTIONS to be set to "SAMEORIGIN"
-            "security.W019"
-        ]
-    )
+    # SILENCED_SYSTEM_CHECKS = values.ListValue(
+    #     [
+    #         # Allow the X_FRAME_OPTIONS to be set to "SAMEORIGIN"
+    #         "security.W019"
+    #     ]
+    # )
     # The X_FRAME_OPTIONS value should be set to "SAMEORIGIN" to display
     # DjangoCMS frontend admin frames. Dockerflow raises a system check security
     # warning with this setting, one should add "security.W019" to the
     # SILENCED_SYSTEM_CHECKS setting (see above).
-    X_FRAME_OPTIONS = "SAMEORIGIN"
+    # X_FRAME_OPTIONS = "SAMEORIGIN"
 
     # For static files in production, we want to use a backend that includes a hash in
     # the filename, that is calculated from the file content, so that browsers always

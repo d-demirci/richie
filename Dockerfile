@@ -58,7 +58,7 @@ FROM base as core
 # Install gettext
 RUN apt-get update && \
     apt-get install -y \
-    gettext 
+    gettext vim
     # python3-dev default-libmysqlclient-dev python3-mysqldb
     #&& \
     #rm -rf /var/lib/apt/lists/*
@@ -154,4 +154,4 @@ FROM core as production
 WORKDIR /app/sandbox
 
 # The default command runs gunicorn WSGI server in the sandbox
-CMD gunicorn -c /usr/local/etc/gunicorn/richie.py wsgi:application --preload 
+CMD gunicorn -c /usr/local/etc/gunicorn/richie.py wsgi:application --preload --log-file=/dev/stdout

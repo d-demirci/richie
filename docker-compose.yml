@@ -16,16 +16,16 @@ services:
       target: production
       args:
         DOCKER_USER: ${DOCKER_USER:-1000}
-    image: aresthelord/richie:dev_14
-    env_file:
-        - env.d/development/common
-        - env.d/development/mysql
+    image: aresthelord/richie:pro_1
+    # env_file:
+    #     - env.d/development/common
+    #     - env.d/development/mysql
     environment: 
       # Django
       DJANGO_SETTINGS_MODULE: settings
       DJANGO_CONFIGURATION: Production
       DJANGO_SECRET_KEY: ThisIsAnExampleKeyForDevPurposeOnly
-      DJANGO_ALLOWED_HOSTS: "*"
+      #DJANGO_ALLOWED_HOSTS: "*"
       # Python
       PYTHONUNBUFFERED: 1
       DB_ENGINE: django.db.backends.mysql

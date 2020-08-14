@@ -1,0 +1,1 @@
+admin, auth, cms, contenttypes, courses, djangocms_googlemap, djangocms_link, djangocms_picture, djangocms_text_ckeditor, djangocms_video, easy_thumbnails, filer, glimpse, html_sitemap, large_banner, menus, nesteditem, plain_text, section, sessions, simple_text_ckeditor, sites, social_django
